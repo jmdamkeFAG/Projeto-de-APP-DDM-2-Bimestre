@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <style>
+          :root{
+            background-color: #757575;
+            --cor-fundo: #fff;
+            --cor_text: #222;
+            --cor-primaria: #707070;
+            --espaco-pequeno: 4px;
+            --espaco-medio: 16px;
+            --espaco-grande: 24px;
+          }
+
+          @media(prefers-color-scheme: dark){
+            :root{
+            --cor-fundo: #000000;
+          }
+          }
+
+          .containterAula{
+            background-color: #212529;
+            margin: var(--espaco-grande);
+            padding: var(--espaco-medio);
+
+            width: 95%;
+            height: 100%;
+            border-radius: 12px;
+
+          }
+        </style>
+    </head>
+    <body class="containterAula">
+        <div class="container-fluid">
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Nome" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Buscar</button>
+          </form>
+        </div>
+      <table class="table table-dark table-hover">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Sobrenome</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">CPF</th>
+            <th scope="col">Idade</th>
+          </tr>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>mark@otto.com</td>
+              <td>069599157-54</td>
+              <td>18</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+              <td>069599157-54</td>
+              <td>17</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td colspan="2">Larry the Bird</td>
+              <td>Bird@Larry.com</td>
+              <td>069599157-54</td>
+              <td>16</td>
+            </tr>
+          </tbody>
+        </thead>
+    </body>
+</html>
