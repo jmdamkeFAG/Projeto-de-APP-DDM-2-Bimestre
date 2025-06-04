@@ -23,7 +23,7 @@ export default function ConfiguracoesScreen() {
         try {
             await AsyncStorage.setItem('API_IP', ip);
             Alert.alert('Sucesso', 'Endereço IP atualizado.');
-            router.back(); // volta à tela anterior
+            router.back();
         } catch (error) {
             Alert.alert('Erro', 'Não foi possível salvar o IP.');
         }

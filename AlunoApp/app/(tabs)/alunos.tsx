@@ -25,7 +25,7 @@ export default function CadastroAlunoScreen() {
         nome,
         cpf,
         email,
-        dataNasc: dataNasc.toISOString(), // Aqui continua em ISO para envio à API
+        dataNasc: dataNasc.toISOString(), 
         curso,
       });
       Alert.alert('Sucesso', 'Aluno cadastrado com sucesso!');
@@ -78,7 +78,7 @@ export default function CadastroAlunoScreen() {
         <Text style={{ marginBottom: 6 }}>Data de Nascimento:</Text>
         <Button
           color="green"
-          title={dataNasc.toLocaleDateString('pt-BR')} // ← Aqui a correção
+          title={dataNasc.toLocaleDateString('pt-BR')}
           onPress={() => setShowDatePicker(true)}
         />
       </View>
