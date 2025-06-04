@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Alert, ScrollView, Platform } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { createAluno } from '../../src/services/alunoService';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 export default function CadastroAlunoScreen() {
   const [nome, setNome] = useState('');
@@ -10,6 +12,7 @@ export default function CadastroAlunoScreen() {
   const [dataNasc, setDataNasc] = useState<Date>(new Date());
   const [curso, setCurso] = useState('');
   const [showDatePicker, setShowDatePicker] = useState(false);
+
 
   const handleSubmit = async () => {
     if (!nome || !cpf || !email || !dataNasc) {
@@ -107,7 +110,14 @@ export default function CadastroAlunoScreen() {
 
 const styles = StyleSheet.create({
   container: { flexGrow: 1, padding: 16, backgroundColor: 'white' },
-  title: { fontSize: 22, color: 'green', fontWeight: 'bold', borderTopWidth: 32, marginBottom: 20, textAlign: 'center', borderTopColor: "white" },
+  title: {
+    color: 'green',
+    fontSize: 32,
+    fontWeight: 'bold',
+    marginBottom: 16,
+    borderTopWidth: 32,
+    borderTopColor: 'white',
+  },
   input: {
     borderWidth: 1,
     borderColor: '#ccc',

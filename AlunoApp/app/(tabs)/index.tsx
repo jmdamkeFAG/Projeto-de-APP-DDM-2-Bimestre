@@ -173,10 +173,11 @@ export default function HomeScreen() {
 
         {menuVisivel && (
           <View style={styles.menu}>
-            <TouchableOpacity style={styles.menuItem} onPress={() => {
+            <TouchableOpacity style={styles.menuItem} onPress={async () => {
               setAcessoLiberado(false);
               setUsuarioDigitado('');
               setSenhaDigitada('');
+              await AsyncStorage.removeItem('acessoLiberado'); // <- Adicione isso!
             }}>
               <Text style={styles.menuItemText}>Sair</Text>
             </TouchableOpacity>
