@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
 import {
   View, Text, FlatList, ActivityIndicator, StyleSheet,
-  TouchableOpacity, Button, Alert, TextInput
+  TouchableOpacity, Button, Alert, TextInput,
+  Image
 } from 'react-native';
 import { getAlunos, deleteAluno, Aluno } from '../../src/services/alunoService';
 import { router, Stack, useFocusEffect } from 'expo-router';
@@ -21,7 +22,7 @@ export default function HomeScreen() {
       const data = await getAlunos();
       setAlunos(data);
     } catch (error) {
-      console.error('Erro ao carregar alunos. Tente alterar o endereco IP da API nas configuracoes.', error, );
+      console.error('Erro ao carregar alunos. Tente alterar o endereco IP da API nas configuracoes.', error,);
       Alert.alert('Erro', 'Nao foi possivel se conectar com a API. Tente alterar o endereco IP da API nas configuracoes.');
     }
   };
@@ -69,7 +70,16 @@ export default function HomeScreen() {
 
   if (!acessoLiberado) {
     return (
+
+
       <View style={styles.container}>
+
+        <View style={styles.logoContainer}>
+          <Image style={styles.logo}
+            source={require('../../assets/ClassControlLogo.png')}
+          />
+        </View>
+
         <Text style={styles.title}>Realize o login:</Text>
         <TextInput
           style={styles.input}
@@ -84,17 +94,24 @@ export default function HomeScreen() {
           placeholder="Senha"
           secureTextEntry
         />
-        <Button
-          title="Entrar"
-          onPress={async () => {
-            if (senhaDigitada === 'admin' && usuarioDigitado === 'admin') {
-              await AsyncStorage.setItem('acessoLiberado', 'true');
-              setAcessoLiberado(true);
-            } else {
-              Alert.alert('Acesso negado', 'Usuário ou senha incorretos.');
-            }
-          }}
-        />
+
+        <View style={styles.buttonRow}>
+          <View style={styles.button}>
+            <Button
+              title="Entrar"
+              color={'green'}
+              onPress={async () => {
+                if (senhaDigitada === 'admin' && usuarioDigitado === 'admin') {
+                  await AsyncStorage.setItem('acessoLiberado', 'true');
+                  setAcessoLiberado(true);
+                } else {
+                  Alert.alert('Acesso negado', 'Usuário ou senha incorretos.');
+                }
+              }}
+            />
+          </View>
+        </View>
+
       </View>
     );
   }
@@ -177,6 +194,7 @@ export default function HomeScreen() {
               setAcessoLiberado(false);
               setUsuarioDigitado('');
               setSenhaDigitada('');
+              setMenuVisivel(!menuVisivel);
               await AsyncStorage.removeItem('acessoLiberado');
             }}>
               <Text style={styles.menuItemText}>Sair</Text>
@@ -284,5 +302,17 @@ const styles = StyleSheet.create({
   },
   menuItemText: {
     fontSize: 16,
+  },
+  logoContainer: {
+    alignItems: 'center'
+  },
+  logo: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 12,
+    width: 200,
+    height: 200,
+    borderRadius: 20,
+    marginBottom: 20,
   },
 });
