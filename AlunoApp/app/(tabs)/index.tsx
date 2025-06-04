@@ -177,7 +177,7 @@ export default function HomeScreen() {
               setAcessoLiberado(false);
               setUsuarioDigitado('');
               setSenhaDigitada('');
-              await AsyncStorage.removeItem('acessoLiberado'); // <- Adicione isso!
+              await AsyncStorage.removeItem('acessoLiberado');
             }}>
               <Text style={styles.menuItemText}>Sair</Text>
             </TouchableOpacity>
