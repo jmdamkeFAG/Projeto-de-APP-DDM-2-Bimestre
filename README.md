@@ -6,6 +6,6 @@ Os testes sao realizados utilizando o emulador do android Studio. Caso sejam fei
 O login do aplicativo: User: admin	Pass: admin
 Uma vez que o login for realizado, não será solicitado login até que seja realizado logoff.
 
-O apk do aplicativo está disponível para download: https://expo.dev/accounts/jmdamke/projects/ClassControl/builds/436a0445-4edc-4182-a215-98b17db866c5
+O apk do aplicativo está disponível para download: https://expo.dev/accounts/jmdamke/projects/ClassControl/builds/f8eb9394-d020-4b03-996a-d63ff3e219ca
 
 Dentro do App é possível listar, editar, deletar e cadastrar alunos.
