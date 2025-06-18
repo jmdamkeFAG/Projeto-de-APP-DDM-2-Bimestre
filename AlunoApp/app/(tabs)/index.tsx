@@ -7,6 +7,7 @@ import {
 import { getAlunos, deleteAluno, Aluno } from '../../src/services/alunoService';
 import { router, Stack, useFocusEffect } from 'expo-router';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { getApiUrl } from '../../constants/api';
 
 export default function HomeScreen() {
   const [alunos, setAlunos] = useState<Aluno[]>([]);
@@ -22,7 +23,7 @@ export default function HomeScreen() {
       const data = await getAlunos();
       setAlunos(data);
     } catch (error) {
-      console.error('Erro ao carregar alunos. Tente alterar o endereco IP da API nas configuracoes.', error,);
+      console.error('Erro ao carregar alunos. Tente alterar o endereco IP da API nas configuracoes.', error);
       Alert.alert('Erro', 'Nao foi possivel se conectar com a API. Tente alterar o endereco IP da API nas configuracoes.');
     }
   };
@@ -223,14 +224,15 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   loader: { flex: 1, justifyContent: 'center' },
-  container: { flex: 1, padding: 16, backgroundColor: '#fff' },
+  container: { flex: 1, padding: 16, backgroundColor: '#acd6c3' },
   title: {
+    backgroundColor: '#acd6c3',
     color: 'green',
     fontSize: 32,
     fontWeight: 'bold',
     marginBottom: 16,
     borderTopWidth: 32,
-    borderTopColor: 'white',
+    borderTopColor: '#acd6c3',
   },
   item: {
     marginBottom: 12,
@@ -261,7 +263,7 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: '#789587',
     borderRadius: 8,
     padding: 10,
     marginBottom: 16,
@@ -304,7 +306,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   logoContainer: {
-    alignItems: 'center'
+    alignItems: 'center',
+    borderTopWidth: 12,
+    borderTopColor: '#acd6c3',
   },
   logo: {
     alignItems: 'center',

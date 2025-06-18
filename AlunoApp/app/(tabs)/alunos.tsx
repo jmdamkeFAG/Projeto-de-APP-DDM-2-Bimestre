@@ -109,18 +109,18 @@ export default function CadastroAlunoScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flexGrow: 1, padding: 16, backgroundColor: 'white' },
+  container: { flexGrow: 1, padding: 16, backgroundColor: '#acd6c3', borderTopColor: '#acd6c3' },
   title: {
     color: 'green',
     fontSize: 32,
     fontWeight: 'bold',
     marginBottom: 16,
     borderTopWidth: 32,
-    borderTopColor: 'white',
+    borderTopColor: '#acd6c3',
   },
   input: {
     borderWidth: 1,
-    borderColor: '#ccc',
+    borderColor: '#789587',
     padding: 12,
     marginBottom: 16,
     borderRadius: 6,

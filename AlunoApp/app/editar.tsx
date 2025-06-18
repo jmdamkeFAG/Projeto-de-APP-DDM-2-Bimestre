@@ -109,7 +109,7 @@ export default function EditarAlunoScreen() {
 }
 
 const styles = StyleSheet.create({
-    container: { flexGrow: 1, padding: 16, backgroundColor: 'white' },
+    container: { flexGrow: 1, padding: 16, backgroundColor: '#acd6c3' },
     title: {
         fontSize: 22,
         color: 'green',
@@ -117,11 +117,11 @@ const styles = StyleSheet.create({
         borderTopWidth: 32,
         marginBottom: 20,
         textAlign: 'center',
-        borderTopColor: 'white',
+        borderTopColor: '#acd6c3',
     },
     input: {
         borderWidth: 1,
-        borderColor: '#ccc',
+        borderColor: '#789587',
         padding: 12,
         marginBottom: 16,
         borderRadius: 6,
