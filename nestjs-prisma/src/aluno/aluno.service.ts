@@ -26,6 +26,12 @@ export class AlunoService {
     return aluno.map(aluno => this.mapToEntity(aluno));
   }
 
+  async findOne(id: string): Promise<Aluno | null> {
+    const aluno =
+      await this.prisma.aluno.findUnique({ where: { id } });
+    return this.mapToEntity(aluno);
+  }
+
   async create(createAlunoDTO: CreateAlunoDTO): Promise<Aluno> {
     const aluno = await this.prisma.aluno.create({
       data: {
@@ -36,13 +42,6 @@ export class AlunoService {
         curso: createAlunoDTO.curso,
       }
     });
-    return this.mapToEntity(aluno);
-  }
-
-
-  async findOne(id: string): Promise<Aluno | null> {
-    const aluno =
-      await this.prisma.aluno.findUnique({ where: { id } });
     return this.mapToEntity(aluno);
   }
 
@@ -61,11 +60,6 @@ export class AlunoService {
 
     return this.mapToEntity(alunoAtualizado);
   }
-
-  /*async update(id: string, updateAlunoDto: UpdateAlunoDTO): Promise<Aluno> {
-    const aluno = await this.prisma.aluno.update({ where: { id }, data: updateAlunoDto})
-    return this.mapToEntity(aluno);
-  }*/
 
   async delete(id: string): Promise<Aluno> {
     return this.prisma.aluno.delete({ where: { id } });
